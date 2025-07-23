@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacra Praxis - Medicina. Energía. Consciencia.</title>
+    
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for custom typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Animate On Scroll Library for scroll-triggered animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Definición de variables CSS para colores */
+        :root {
+            --light-bg: #FBF9F3; /* Soft off-white, almost cream */
+            --dark-bg: #0A0A0A; /* Deep charcoal, almost black */
+            --light-text: #3A3A3A; /* Rich dark gray */
+            --dark-text: #F0F0F0; /* Soft light gray */
+            --accent-gold: #D4AF37; /* Brighter, more opulent gold */
+            --accent-teal: #2F4F4F; /* Dark Slate Gray for buttons */
+        }
+
+        /* Custom styles to apply chosen fonts and dark mode */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+        .font-serif-elegant {
+            font-family: 'Lora', serif;
+        }
+        /* Dark mode styles */
+        .dark body {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        /* Custom background for the hero section - using a luxurious image placeholder */
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/0A0A0A/D4AF37/png?text=Fondo+Abstracto+Lujoso'); /* Placeholder for a luxurious abstract background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect for the background */
+        }
+        .dark .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/050505/D4AF37/png?text=Fondo+Abstracto+Lujoso+Oscuro'); /* Darker version for dark mode */
+        }
+
+        /* Subtle texture for dark mode sections */
+        .dark .dark-texture {
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+        }
+        /* Glassmorphism effect mejorado */
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.1); /* Ligeramente más transparente en claro */
+            backdrop-filter: blur(12px); /* Mayor desenfoque */
+            -webkit-backdrop-filter: blur(12px); /* For Safari */
+            border: 1px solid rgba(184, 134, 11, 0.3); /* Borde con tinte dorado sutil */
+            border-radius: 1rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+        }
+        .dark .glassmorphism {
+            background-color: rgba(0, 0, 0, 0.3); /* Más opaco en oscuro */
+            border: 1px solid rgba(224, 224, 224, 0.1); /* Borde más sutil en oscuro */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 1px solid transparent;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease-in-out; /* Transición suave para todos los cambios */
+        }
+        .btn-light {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--dark-text); /* Usar variable para consistencia */
+        }
+        .btn-light:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: var(--accent-gold); /* Borde dorado al pasar el cursor */
+            box-shadow: 0 0 15px rgba(184, 134, 11, 0.5); /* Sombra dorada */
+        }
+        .btn-dark {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(82, 82, 82, 0.4);
+            color: var(--light-text);
+        }
+        .btn-dark:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold); /* Texto dorado al pasar el cursor */
+            box-shadow: 0 0 15px rgba(184, 134, 11, 0.5);
+        }
+        .dark .btn-dark {
+            border-color: rgba(163, 163, 163, 0.4);
+            color: var(--dark-text);
+        }
+        .dark .btn-dark:hover {
+            background-color: rgba(229, 229, 229, 0.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+        
+        /* Custom blue button for ritual - using a deeper teal */
+        .btn-ritual-blue {
+            background-color: var(--accent-teal); /* Dark Slate Gray */
+            color: var(--dark-text); /* Light text for contrast */
+            box-shadow: 0 4px 8px rgba(47, 79, 79, 0.4); /* Sombra para el botón */
+        }
+        .btn-ritual-blue:hover {
+            background-color: #3A6666; /* Slightly darker teal for hover */
+            box-shadow: 0 6px 12px rgba(47, 79, 79, 0.6);
+        }
+
+        /* Service card details container for smooth expand/collapse effect */
+        .service-card-details, .insight-card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+
+        /* Modal styles for the ritual generation popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            transition-property: opacity;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-container {
+            background-color: var(--dark-bg); /* Usar variable de fondo oscuro */
+            color: var(--dark-text); /* Usar variable de texto claro */
+            border-radius: 0.75rem; /* Bordes más redondeados */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
+            padding: 2.5rem; /* Más padding */
+            max-width: 48rem; /* Un poco más ancho */
+            width: 90%;
+            transform: scale(0.9); /* Inicio un poco más pequeño */
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        
+        /* Spinner for loading state */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid var(--accent-gold); /* Color dorado para el spinner */
+            border-radius: 50%;
+            width: 28px; /* Un poco más grande */
+            height: 28px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* FAQ accordion styles */
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition-property: color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .faq-answer p {
+            padding-bottom: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            color: var(--dark-text); /* Usar variable para consistencia */
+        }
+        .faq-question.active + .faq-answer {
+            max-height: 200px; /* Adjust as needed, or calculate dynamically */
+        }
+        .faq-question .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-question.active .icon {
+            transform: rotate(180deg);
+        }
+
+        /* Scroll to top button */
+        #scroll-to-top {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 6rem; /* Above other fixed buttons */
+            right: 1rem;
+            z-index: 40;
+            background-color: rgba(0, 0, 0, 0.4); /* Más opaco */
+            color: white;
+            width: 3.5rem; /* Un poco más grande */
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s, transform 0.2s;
+            opacity: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        #scroll-to-top:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+            transform: translateY(-3px); /* Pequeño efecto de elevación */
+        }
+        #scroll-to-top.show {
+            opacity: 1;
+            display: flex;
+        }
+
+        /* Custom animation for scroll down indicator */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1.5s ease-out infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] text-[var(--light-text)] dark:text-[var(--dark-text)]">
+
+    <!-- Optional ambient music player -->
+    <div class="fixed bottom-4 left-4 z-40" data-aos="fade-up">
+        <audio id="ambient-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <button id="music-toggle" class="w-14 h-14 bg-black/40 dark:bg-white/15 text-white rounded-full flex items-center justify-center backdrop-blur-md hover:bg-black/60 dark:hover:bg-white/25 transition-all shadow-lg">
+            <i id="music-icon" class="fas fa-play text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="theme-toggle" class="fixed bottom-4 right-4 z-40 w-14 h-14 bg-black/40 dark:bg-white/15 text-white rounded-full flex items-center justify-center backdrop-blur-md hover:bg-black/60 dark:hover:bg-white/25 transition-all shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-24 right-4 z-40 bg-black/40 dark:bg-white/15 text-white rounded-full w-14 h-14 flex items-center justify-center backdrop-blur-md hover:bg-black/60 dark:hover:bg-white/25 transition-all shadow-lg">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-30 bg-[var(--light-bg)]/80 dark:bg-[var(--dark-bg)]/80 backdrop-blur-lg shadow-xl py-4 px-6 glassmorphism border-b border-[var(--accent-gold)]/20 dark:border-[var(--dark-text)]/10">
+        <div class="max-w-6xl mx-auto flex justify-center space-x-8 md:space-x-12 text-lg">
+            <a href="#sobre-mi" class="text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)] font-medium transition-colors duration-300">Sobre mí</a>
+            <a href="#servicios" class="text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)] font-medium transition-colors duration-300">Servicios</a>
+            <a href="#investigacion" class="text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)] font-medium transition-colors duration-300">Investigación</a>
+            <a href="#faq" class="text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)] font-medium transition-colors duration-300">FAQ</a>
+            <a href="#contacto" class="text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)] font-medium transition-colors duration-300">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section: Full-screen introductory section -->
+    <section class="h-screen min-h-[700px] w-full flex flex-col items-center justify-center text-white hero-bg relative">
+        <!-- Overlay for better text readability and glassmorphism effect -->
+        <div class="absolute inset-0 bg-black/70 dark:bg-black/80"></div>
+        <div class="relative z-10 text-center px-8 py-16 glassmorphism max-w-4xl mx-auto" data-aos="fade-in" data-aos-duration="1500">
+            <h1 class="font-serif-elegant text-6xl md:text-8xl lg:text-9xl font-medium tracking-wider text-white drop-shadow-lg" style="text-shadow: 0 0 15px rgba(255,255,255,0.4);">
+                Sacra Praxis
+            </h1>
+            <p class="mt-8 text-xl md:text-3xl tracking-widest text-stone-200 uppercase" style="letter-spacing: 0.25em;">
+                Medicina. Energía. Consciencia.
+            </p>
+            <div class="mt-16">
+                <a href="#servicios" class="btn-primary btn-light text-white border-white hover:bg-white hover:text-stone-900 text-lg px-8 py-4">
+                    Explorar servicios
+                </a>
+            </div>
+        </div>
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-10 z-10 text-white animate-fade-in-up">
+            <a href="#sobre-mi"><i class="fas fa-chevron-down text-3xl"></i></a>
+        </div>
+    </section>
+
+    <main class="w-full">
+        <!-- 2. About Me Section -->
+        <section id="sobre-mi" class="py-20 md:py-32 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] dark-texture">
+            <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-2" data-aos="fade-right" data-aos-duration="800">
+                    <!-- Updated image source to a placeholder with fallback -->
+                    <img src="https://placehold.co/600x800/4a4a4a/E0E0E0/png?text=Tu+Foto+Profesional" 
+                            alt="Foto de Martín Bustos Villar" 
+                            class="rounded-xl shadow-2xl w-full h-auto object-cover aspect-[3/4] filter grayscale-[70%] sepia-[30%] hover:grayscale-0 hover:sepia-0 transition-all duration-500"
+                            onerror="this.onerror=null;this.src=`https://placehold.co/600x800/808080/FFFFFF?text=Imagen+no+disponible`;">
+                </div>
+                <div class="md:col-span-3" data-aos="fade-left" data-aos-duration="800">
+                    <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Sobre Martín Bustos Villar</h2>
+                    <p class="mt-6 text-xl text-[var(--light-text)] dark:text-[var(--dark-text)] leading-relaxed font-serif-elegant italic">
+                        "Creo en una medicina del alma, que escucha sin juicio, que transforma desde lo humano, lo corporal y lo invisible."
+                    </p>
+                    <p class="mt-4 text-base text-[var(--light-text)] dark:text-[var(--dark-text)] leading-relaxed">
+                        Soy médico en formación como psiquiatra. Mi misión es acompañarte a reconectar con tu energía, tu biografía y tu libertad interior.
+                    </p>
+                    <div class="mt-8 pt-6 border-t border-stone-300 dark:border-stone-700">
+                        <p class="text-sm tracking-widest text-stone-500 dark:text-stone-400 uppercase">
+                            Sol en Acuario · Luna en Géminis · Ascendente en Aries
+                        </p>
+                        <div class="flex space-x-4 mt-3 text-2xl text-[var(--accent-gold)] dark:text-[var(--accent-gold)]">
+                            <i class="fas fa-sun" title="Sol en Acuario"></i>
+                            <i class="fas fa-moon" title="Luna en Géminis"></i>
+                            <i class="fas fa-arrow-up" title="Ascendente en Aries"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto Section: A poetic statement of philosophy -->
+        <section class="py-20 md:py-24 bg-stone-900 text-stone-300 dark-texture">
+            <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+                <h3 class="font-serif-elegant text-3xl text-[var(--accent-gold)]/70">Manifiesto</h3>
+                <p class="mt-6 text-xl md:text-2xl font-serif-elegant italic leading-relaxed">
+                    "El cuerpo es el templo, el alma su eco eterno. Sanar es el arte de escuchar su diálogo, de descifrar la biografía escrita en la energía y devolverle a la consciencia su soberanía. Es un retorno a casa, al centro sagrado donde reside nuestra más pura libertad."
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. Services Section -->
+        <section id="servicios" class="py-20 md:py-32 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Servicios</h2>
+                    <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">Curados como piezas de arte para tu transformación.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service Card 1: Energy Cleansing -->
+                    <div class="service-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] dark:hover:bg-stone-900/50 flex flex-col glassmorphism" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex-grow">
+                            <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)] text-center">Limpiezas Energéticas</h3>
+                            <p class="mt-3 text-stone-500 dark:text-stone-400 italic text-center">"Libera lo que ya no te sirve para dar paso a lo nuevo."</p>
+                            <button onclick="toggleService(this)" class="mt-6 btn-primary btn-dark text-sm">Descubrir más <i class="fas fa-chevron-down ml-2 icon"></i></button>
+                            <div class="service-card-details text-left mt-6 text-stone-600 dark:text-stone-300">
+                                <p class="mb-4">Limpieza y armonización de energías densas; incluye diagnóstico y sellado protector.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Diagnóstico energético</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Armonización de chakras</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Sellado protector</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700">
+                                    <p class="text-2xl font-medium text-[var(--light-text)] dark:text-[var(--dark-text)]">$55.000 ARS | US 43</p>
+                                    <p class="text-sm text-stone-500 dark:text-stone-400">por sesión</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-left">
+                            <a href="https://calendly.com/mbustosvillar/nueva-reunion" target="_blank" class="inline-flex items-center bg-stone-900 text-white py-3 px-6 rounded-lg hover:bg-stone-800 transition-colors duration-300">
+                                <i class="far fa-calendar-alt mr-2"></i> Agendar sesión
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2: Ritual Generation (Interactive) -->
+                    <div class="service-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] dark:hover:bg-stone-900/50 flex flex-col glassmorphism" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex-grow">
+                            <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)] text-center">Asistente de Intenciones (ritual personalizado)</h3>
+                            <p class="mt-3 text-stone-500 dark:text-stone-400 italic text-center">"Definimos tu objetivo y diseñamos un ritual a medida con seguimiento breve."</p>
+                            <button onclick="toggleService(this)" class="mt-6 btn-primary btn-dark text-sm">Descubrir más <i class="fas fa-chevron-down ml-2 icon"></i></button>
+                            <div class="service-card-details text-left mt-6 text-stone-600 dark:text-stone-300">
+                                <p class="mb-4">Esta herramienta te ayudará a generar un borrador inicial de ritual personalizado. Luego, podrás agendar una consulta para terminar de darle forma o recibir tips adicionales.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Generación de borrador</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Guía inicial</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Opción de consulta de seguimiento</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700">
+                                    <p class="text-2xl font-medium text-[var(--light-text)] dark:text-[var(--dark-text)]">$55.000 ARS | US 43</p>
+                                    <p class="text-sm text-stone-500 dark:text-stone-400">paquete completo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-left">
+                            <button onclick="openModal()" class="inline-flex items-center btn-ritual-blue text-white py-3 px-6 rounded-lg hover:btn-ritual-blue transition-colors duration-300">
+                                <i class="fas fa-magic mr-2"></i> Crear ritual
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3: Psychiatric Support -->
+                    <div class="service-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] dark:hover:bg-stone-900/50 flex flex-col glassmorphism" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex-grow">
+                            <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)] text-center">Acompañamiento Psiquiátrico Integral</h3>
+                            <p class="mt-3 text-stone-500 dark:text-stone-400 italic text-center">"Consulta médica con evaluación clínica, ajuste terapéutico y psicoeducación."</p>
+                            <button onclick="toggleService(this)" class="mt-6 btn-primary btn-dark text-sm">Descubrir más <i class="fas fa-chevron-down ml-2 icon"></i></button>
+                            <div class="service-card-details text-left mt-6 text-stone-600 dark:text-stone-300">
+                                <p class="mb-4">Consulta médica con evaluación clínica, ajuste terapéutico y psicoeducación.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Evaluación clínica completa</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Ajuste terapéutico personalizado</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Sesiones de psicoeducación</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700">
+                                    <p class="text-2xl font-medium text-[var(--light-text)] dark:text-[var(--dark-text)]">$55.000 ARS | US 43</p>
+                                    <p class="text-sm text-stone-500 dark:text-stone-400">por sesión</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-left">
+                            <a href="https://calendly.com/mbustosvillar/nueva-reunion" target="_blank" class="inline-flex items-center bg-stone-900 text-white py-3 px-6 rounded-lg hover:bg-stone-800 transition-colors duration-300">
+                                <i class="far fa-calendar-alt mr-2"></i> Agendar consulta
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- New Service Card 4: Kundalini Activation (KAE) -->
+                    <div class="service-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] dark:hover:bg-stone-900/50 flex flex-col glassmorphism" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex-grow">
+                            <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)] text-center">Activación Kundalini (KAE)</h3>
+                            <p class="mt-3 text-stone-500 dark:text-stone-400 italic text-center">"Sesión guiada para activar la energía kundalini de forma segura (individual o grupal)."</p>
+                            <button onclick="toggleService(this)" class="mt-6 btn-primary btn-dark text-sm">Descubrir más <i class="fas fa-chevron-down ml-2 icon"></i></button>
+                            <div class="service-card-details text-left mt-6 text-stone-600 dark:text-stone-300">
+                                <p class="mb-4">Sesión guiada para activar la energía kundalini de forma segura, facilitando un despertar energético y una profunda conexión interior.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Sesiones individuales o grupales</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Activación segura y guiada</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Integración post-sesión</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-700">
+                                    <p class="text-2xl font-medium text-[var(--light-text)] dark:text-[var(--dark-text)]">$75.000 ARS | US 60</p>
+                                    <p class="text-sm text-stone-500 dark:text-stone-400">por sesión</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-left">
+                            <a href="https://calendly.com/mbustosvillar/nueva-reunion" target="_blank" class="inline-flex items-center bg-stone-900 text-white py-3 px-6 rounded-lg hover:bg-stone-800 transition-colors duration-300">
+                                <i class="far fa-calendar-alt mr-2"></i> Agendar sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Central Calendly Widget Section -->
+                <div class="mt-24 text-center glassmorphism p-8" data-aos="fade-up">
+                    <h3 class="font-serif-elegant text-3xl md:text-4xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-8">Agenda tu Sesión</h3>
+                    <p class="text-lg text-stone-600 dark:text-stone-400 mb-8">Selecciona el tipo de sesión que deseas agendar directamente desde nuestro calendario.</p>
+                    <div class="flex justify-center">
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/mbustosvillar/nueva-reunion" style="min-width:320px;height:700px; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);"></div>
+                    </div>
+                </div>
+
+                <!-- New Insights/Blog Section -->
+                <section id="insights" class="py-20 md:py-32 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]">
+                    <div class="max-w-6xl mx-auto px-6">
+                        <div class="text-center mb-16" data-aos="fade-up">
+                            <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">La Conexión Mente-Cuerpo en la Sanación</h2>
+                            <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">Explorando cómo nuestras emociones impactan la salud física y viceversa.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Insight Card 1 -->
+                            <div class="insight-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 glassmorphism" data-aos="fade-up" data-aos-delay="100">
+                                <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Despertando la Energía Interior: Una Guía</h3>
+                                <p class="mt-3 text-stone-500 dark:text-stone-400">Pasos sencillos para sintonizar con tu campo energético personal.</p>
+                                <button onclick="toggleInsight(this)" class="mt-6 btn-primary btn-dark text-sm">Leer más <i class="fas fa-chevron-down ml-2 icon"></i></button>
+                                <div class="insight-card-details text-left mt-6 text-stone-600 dark:text-stone-300">
+                                    <p class="mb-4">Tu energía interior es la fuerza vital que te impulsa. Aprender a sintonizar con ella te permite comprender mejor tus estados emocionales y físicos, y tomar el control de tu bienestar.</p>
+                                    <ul class="space-y-2 text-sm">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-leaf text-green-500 mt-1 mr-2"></i>
+                                            <span>**Meditación y Respiración Consciente:** Dedica unos minutos al día a la meditación. Concéntrate en tu respiración, observando cómo el aire entra y sale de tu cuerpo. Esto calma la mente y te conecta con tu centro energético.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                            <span>**Conexión con la Naturaleza:** Pasa tiempo al aire libre. Camina descalzo sobre la hierba, abraza un árbol o simplemente siéntate en un parque. La naturaleza es una fuente poderosa de energía que puede recargarte.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-hand-sparkles text-green-500 mt-1 mr-2"></i>
+                                            <span>**Movimiento Intuitivo:** Escucha a tu cuerpo y muévete de forma que te resulte natural. Puede ser bailar, estirar, o practicar yoga. El movimiento libera la energía estancada y fomenta el flujo.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-lightbulb text-green-500 mt-1 mr-2"></i>
+                                            <span>**Visualización:** Imagina una luz brillante en tu centro, expandiéndose por todo tu cuerpo. Visualiza cómo esta luz limpia y revitaliza cada célula, llenándote de vitalidad.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Placeholder for Insight Card 3 if needed -->
+                            <div class="insight-card border border-stone-200 dark:border-stone-800 rounded-lg p-8 glassmorphism" data-aos="fade-up" data-aos-delay="300">
+                                <h3 class="font-serif-elegant text-2xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Próximamente: Nuevo Contenido</h3>
+                                <p class="mt-3 text-stone-500 dark:text-stone-400">Mantente atento a nuevas publicaciones y recursos.</p>
+                                <a href="https://wa.me/message/L4YBH2HBBA53D1" target="_blank" class="mt-6 inline-flex items-center text-[var(--accent-gold)] hover:text-[var(--accent-gold)]/80 transition-colors duration-300">
+                                    Contactar <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Daily Energy Dose Section -->
+                <div class="mt-24 max-w-4xl mx-auto text-center glassmorphism p-8" data-aos="fade-up">
+                    <h3 class="font-serif-elegant text-3xl md:text-4xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-4">Tu Dosis de Energía Diaria</h3>
+                    <p class="text-lg text-stone-600 dark:text-stone-400 mb-8">Recibe un consejo inspirador para armonizar tu día.</p>
+                    <!-- Placeholder for a simple email signup form -->
+                    <form class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <input type="email" placeholder="Tu email" class="flex-grow px-4 py-3 rounded-lg bg-stone-100 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 text-[var(--light-text)] dark:text-[var(--dark-text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]">
+                        <button type="submit" class="btn-primary btn-ritual-blue text-white py-3 px-6 rounded-lg hover:bg-[#9CB2C3] transition-colors duration-300">Suscribirse</button>
+                    </form>
+                </div>
+
+                <!-- Testimonial Section -->
+                <div class="mt-24 max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <h3 class="font-serif-elegant text-3xl md:text-4xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-8">Experiencias</h3>
+                    <div class="relative">
+                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <svg class="w-16 h-16 text-[var(--accent-gold)]/20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                        </div>
+                        <p class="text-xl text-stone-700 dark:text-stone-300">
+                            Martín me ayudó a volver a sentirme en casa en mí. Su escucha es una medicina en sí misma.
+                        </p>
+                        <p class="mt-4 text-stone-600 dark:text-stone-400">— Ana L.</p>
+                    </div>
+                    <div class="relative mt-12">
+                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <svg class="w-16 h-16 text-[var(--accent-gold)]/20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                        </div>
+                        <p class="text-xl text-stone-700 dark:text-stone-300">
+                            Fue medicina, pero también fue arte. Entendí partes de mí que no sabía cómo nombrar.
+                        </p>
+                        <p class="mt-4 text-stone-600 dark:text-stone-400">— Javier R.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research and Evidence Section -->
+        <section id="investigacion" class="py-20 md:py-32 bg-stone-100 dark:bg-stone-900 dark-texture">
+            <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Investigación y Evidencia</h2>
+                <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">Nuestro compromiso con la ciencia y el bienestar integral.</p>
+                <div class="mt-12 text-left text-stone-700 dark:text-stone-300 space-y-4">
+                    <p>En la práctica de Martín Bustos Villar, integramos los conocimientos más actualizados de la medicina y la psiquiatría con enfoques energéticos y de consciencia.</p>
+                    <p>Nos basamos en la evidencia científica para el acompañamiento psiquiátrico, y exploramos investigaciones emergentes en el campo de las terapias complementarias para ofrecer un abordaje holístico y fundamentado.</p>
+                    <p class="mt-6 text-center text-stone-500 dark:text-stone-400 italic">Para más información sobre la evidencia que respalda nuestros servicios, por favor, <a href="#contacto" class="underline hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)]">contáctanos</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-32 bg-stone-100 dark:bg-stone-900 dark-texture">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Preguntas Frecuentes</h2>
+                    <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">Respuestas a tus dudas más comunes.</p>
+                </div>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-stone-200 dark:border-stone-700 rounded-lg overflow-hidden glassmorphism" data-aos="fade-up" data-aos-delay="100">
+                        <button class="faq-question text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)]" onclick="toggleFaq(this)">
+                            <span>¿Son lo mismo las limpiezas energéticas y el acompañamiento psiquiátrico?</span>
+                            <i class="fas fa-chevron-down ml-2 icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Las limpiezas energéticas son prácticas de bienestar espiritual que buscan armonizar tu campo energético. El acompañamiento psiquiátrico es un servicio médico profesional para el diagnóstico y tratamiento de condiciones de salud mental, basado en la ciencia.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-stone-200 dark:border-stone-700 rounded-lg overflow-hidden glassmorphism" data-aos="fade-up" data-aos-delay="200">
+                        <button class="faq-question text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)]" onclick="toggleFaq(this)">
+                            <span>¿La Activación Kundalini es segura para todos?</span>
+                            <i class="fas fa-chevron-down ml-2 icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La Activación Kundalini es una práctica profunda. Si bien es segura, se recomienda una consulta previa para evaluar si es adecuada para tu momento y necesidades específicas.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-stone-200 dark:border-stone-700 rounded-lg overflow-hidden glassmorphism" data-aos="fade-up" data-aos-delay="300">
+                        <button class="faq-question text-[var(--light-text)] dark:text-[var(--dark-text)] hover:text-[var(--accent-gold)] dark:hover:text-[var(--accent-gold)]" onclick="toggleFaq(this)">
+                            <span>¿Cómo agendo una cita?</span>
+                            <i class="fas fa-chevron-down ml-2 icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Puedes agendar tu cita directamente a través del widget de Calendly en la sección de Contacto de esta página, o enviando un mensaje por WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-20 md:py-32 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)] dark-texture">
+            <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="font-serif-elegant text-4xl md:text-5xl text-[var(--light-text)] dark:text-[var(--dark-text)]">Contacto</h2>
+                <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">Si algo de esto resuena con vos, estoy disponible para acompañarte.</p>
+                <div class="mt-12 space-y-6">
+                    <div class="text-left">
+                        <h4 class="font-semibold text-xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-2">Canales directos</h4>
+                        <p class="text-lg text-stone-600 dark:text-stone-400 mb-4">Para turnos y consultas, la comunicación más fluida es vía WhatsApp.</p>
+                        <p class="text-xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-2">
+                            <i class="fab fa-whatsapp text-[var(--accent-gold)] mr-3"></i>
+                            <a href="https://wa.me/5491136021286" target="_blank" class="hover:underline">+54 11 3602‑1286</a>
+                        </p>
+                        <p class="text-xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-2">
+                            <i class="fas fa-envelope text-[var(--accent-gold)] mr-3"></i>
+                            <a href="mailto:mbustosvillar@gmail.com" class="hover:underline">mbustosvillar@gmail.com</a>
+                        </p>
+                        <p class="text-xl text-[var(--light-text)] dark:text-[var(--dark-text)]">
+                            <i class="fab fa-instagram text-[var(--accent-gold)] mr-3"></i>
+                            <a href="https://instagram.com/sacra.praxis" target="_blank" class="hover:underline">@sacra.praxis</a>
+                        </p>
+                    </div>
+                    <div class="text-left mt-8">
+                        <h4 class="font-semibold text-xl text-[var(--light-text)] dark:text-[var(--dark-text)] mb-2">Ubicación</h4>
+                        <p class="text-lg text-stone-600 dark:text-stone-400">Atención presencial y online desde Buenos Aires, Argentina. Abierto a consultas internacionales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Disclaimer Section -->
+        <section id="disclaimer" class="py-20 md:py-24 bg-stone-900 text-stone-300 dark-texture">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="font-serif-elegant text-3xl text-[var(--accent-gold)]/70 mb-8">📜 DISCLAIMER — Aviso legal y ético</h3>
+                <div class="text-left text-stone-400 space-y-4">
+                    <p>Toda la información publicada en este sitio —incluyendo textos, imágenes, audios y recursos descargables— tiene fines exclusivamente educativos y de divulgación.</p>
+                    <p>No pretende, ni debe interpretarse, como sustituto de diagnóstico, tratamiento o consejo médico individualizado.</p>
+                    
+                    <h4 class="font-semibold text-lg text-stone-300 mt-6 mb-2">📜 Ámbito de los servicios</h4>
+                    <p>Las limpiezas energéticas y la Activación de Energía Kundalini (KAE) son prácticas de bienestar espiritual y no constituyen actos médicos según la Ley 17.132.</p>
+                    <p>El acompañamiento psiquiátrico se brinda bajo normativa sanitaria argentina vigente en CABA y Nación, con matrícula profesional habilitante y consentimiento informado.</p>
+                    <p>Ningún servicio garantiza resultados específicos; la evolución depende de múltiples factores personales.</p>
+
+                    <h4 class="font-semibold text-lg text-stone-300 mt-6 mb-2">Limitación de responsabilidad</h4>
+                    <p>El titular del sitio no será responsable por daños directos, indirectos o emergentes derivados del uso, aplicación o de la mala interpretación de la información aquí contenida, ni por la confianza depositada en testimonios o experiencias de terceros.</p>
+
+                    <h4 class="font-semibold text-lg text-stone-300 mt-6 mb-2">🚨 Urgencias y salud mental</h4>
+                    <p>Ante cualquier situación de riesgo cierto y/o inminente, idea suicida o emergencia médica, contactá de inmediato al servicio de urgencias local (SAME 107 en CABA) o acudí al hospital más cercano. Este sitio no ofrece asistencia de crisis en tiempo real.</p>
+
+                    <h4 class="font-semibold text-lg text-stone-300 mt-6 mb-2">Protección de datos y confidencialidad</h4>
+                    <p>Los datos personales suministrados a través de formularios se tratan conforme a la Ley 25.326 de Protección de Datos Personales.</p>
+                    <p class="mt-6 italic">Al utilizar esta página aceptás implícitamente los términos del presente disclaimer. Si no estás de acuerdo, te recomendamos no continuar navegando ni contratar los servicios ofrecidos.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-stone-900 text-stone-400 text-center text-sm">
+        <div class="max-w-6xl mx-auto px-6">
+            <p>&copy; 2025 Sacra Praxis. Todos los derechos reservados.</p>
+            <p class="mt-2">Diseñado con <i class="fas fa-heart text-red-500 mx-1"></i> y Consciencia.</p>
+            <p class="mt-2">Medios de Pago: One Infinity, Mercado Pago</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Ritual Generation -->
+    <div id="ritual-modal" class="modal-overlay">
+        <div class="modal-container glassmorphism">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-serif-elegant text-[var(--dark-text)]">Creador de Ritual Personalizado</h3>
+                <button onclick="closeModal()" class="text-stone-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="ritual-form">
+                <p class="mb-6 text-[var(--dark-text)]">Completa el formulario para generar un borrador inicial de ritual personalizado basado en tus necesidades específicas. Este es un punto de partida que puedes refinar con una consulta.</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="ritual-purpose" class="block text-sm font-medium text-[var(--dark-text)] mb-1">¿Cuál es tu intención principal?</label>
+                        <select id="ritual-purpose" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-4 py-2 text-[var(--dark-text)] focus:ring-2 focus:ring-[var(--accent-gold)] focus:border-transparent">
+                            <option value="">Selecciona una opción</option>
+                            <option value="sanacion">Sanación emocional</option>
+                            <option value="claridad">Claridad mental</option>
+                            <option value="proposito">Encontrar propósito</option>
+                            <option value="liberacion">Liberación de cargas</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="ritual-elements" class="block text-sm font-medium text-[var(--dark-text)] mb-1">¿Qué elementos tienes disponibles?</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-candles" value="Velas" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Velas</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-incense" value="Incienso" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Incienso</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-crystals" value="Cristales" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Cristales</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-oils" value="Aceites" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Aceites</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-water" value="Agua" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Agua</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-herbs" value="Hierbas" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Hierbas</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-music" value="Música" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Música</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="element-journal" value="Diario/Cuaderno" class="form-checkbox h-5 w-5 text-[var(--accent-gold)] bg-stone-700 border-stone-600 rounded focus:ring-[var(--accent-gold)]">
+                                <span class="ml-2 text-[var(--dark-text)]">Diario/Cuaderno</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="ritual-time" class="block text-sm font-medium text-[var(--dark-text)] mb-1">Tiempo disponible (minutos): <span id="ritual-time-value">20</span></label>
+                        <input type="range" id="ritual-time" min="5" max="60" value="20" class="w-full h-2 bg-stone-700 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-stone-400">
+                            <span>5 min</span>
+                            <span>60 min</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="ritual-notes" class="block text-sm font-medium text-[var(--dark-text)] mb-1">Notas adicionales (opcional)</label>
+                        <textarea id="ritual-notes" rows="3" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-4 py-2 text-[var(--dark-text)] focus:ring-2 focus:ring-[var(--accent-gold)] focus:border-transparent" placeholder="Describe cualquier necesidad especial o preferencia..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-end space-x-3">
+                    <button onclick="closeModal()" class="px-4 py-2 border border-stone-600 text-[var(--dark-text)] rounded-lg hover:bg-stone-700 transition-colors">
+                        Cancelar
+                    </button>
+                    <button onclick="generateRitual()" class="px-6 py-2 btn-ritual-blue text-white rounded-lg hover:btn-ritual-blue transition-colors flex items-center">
+                        <span>Generar ritual</span>
+                        <i class="fas fa-sparkles ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="ritual-loading" class="hidden flex-col items-center justify-center py-12">
+                <div class="loader mb-4"></div>
+                <p class="text-stone-400 mt-4">Creando tu ritual personalizado...</p>
+            </div>
+            
+            <div id="ritual-result" class="hidden">
+                <h4 class="text-xl font-serif-elegant mb-4 text-[var(--dark-text)]">Tu Ritual Personalizado (Borrador Inicial)</h4>
+                <div id="ritual-content" class="prose prose-invert max-w-none text-[var(--dark-text)]">
+                    <!-- Generated ritual content will appear here -->
+                </div>
+                <div class="mt-8 flex justify-end space-x-3">
+                    <button onclick="copyRitual()" class="px-4 py-2 border border-stone-600 text-[var(--dark-text)] rounded-lg hover:bg-stone-700 transition-colors">
+                        <i class="fas fa-copy mr-2"></i> Copiar ritual
+                    </button>
+                    <a href="https://calendly.com/mbustosvillar/nueva-reunion" target="_blank" class="px-6 py-2 btn-ritual-blue text-white rounded-lg hover:btn-ritual-blue transition-colors flex items-center">
+                        <span>Agendar consulta para finalizar</span>
+                        <i class="far fa-calendar-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS library for scroll animations
+        AOS.init({
+            once: true, // Only animate once
+            duration: 1000, // Animation duration
+            easing: 'ease-out-cubic', // Easing function
+        });
+
+        // Function to toggle service card details visibility
+        function toggleService(button) {
+            const details = button.nextElementSibling; // Get the next sibling element, which is the details div
+            const icon = button.querySelector('.icon'); // Get the icon within the button
+
+            if (details.style.maxHeight) {
+                details.style.maxHeight = null; // Collapse the details
+                button.innerHTML = 'Descubrir más <i class="fas fa-chevron-down ml-2 icon"></i>'; // Change button text and icon
+            } else {
+                // Set max-height to the scrollHeight to expand it fully
+                details.style.maxHeight = details.scrollHeight + 'px';
+                button.innerHTML = 'Ver menos <i class="fas fa-chevron-up ml-2 icon"></i>'; // Change button text and icon
+            }
+        }
+
+        // Function to toggle insight card details visibility
+        function toggleInsight(button) {
+            const details = button.nextElementSibling; // Get the next sibling element, which is the details div
+            const icon = button.querySelector('.icon'); // Get the icon within the button
+
+            if (details.style.maxHeight) {
+                details.style.maxHeight = null; // Collapse the details
+                button.innerHTML = 'Leer más <i class="fas fa-chevron-down ml-2 icon"></i>'; // Change button text and icon
+            } else {
+                // Set max-height to the scrollHeight to expand it fully
+                details.style.maxHeight = details.scrollHeight + 'px';
+                button.innerHTML = 'Ver menos <i class="fas fa-chevron-up ml-2 icon"></i>'; // Change button text and icon
+            }
+        }
+
+        // Get modal elements
+        const ritualModal = document.getElementById('ritual-modal');
+        const ritualForm = document.getElementById('ritual-form');
+        const ritualLoading = document.getElementById('ritual-loading');
+        const ritualResult = document.getElementById('ritual-result');
+        const ritualContent = document.getElementById('ritual-content');
+        const ritualTimeInput = document.getElementById('ritual-time');
+        const ritualTimeValue = document.getElementById('ritual-time-value');
+
+        // Update ritual time value display
+        ritualTimeInput.addEventListener('input', () => {
+            ritualTimeValue.textContent = ritualTimeInput.value;
+        });
+
+        // Function to open the ritual modal
+        function openModal() {
+            ritualModal.classList.add('active'); // Add 'active' class to show modal
+            ritualForm.classList.remove('hidden'); // Show the form
+            ritualLoading.classList.add('hidden'); // Hide loading spinner
+            ritualResult.classList.add('hidden'); // Hide ritual result
+            ritualContent.innerHTML = ''; // Clear previous ritual content
+        }
+
+        // Function to close the ritual modal
+        function closeModal() {
+            ritualModal.classList.remove('active'); // Remove 'active' class to hide modal
+        }
+
+        // Function to generate ritual using Gemini API
+        async function generateRitual() {
+            ritualForm.classList.add('hidden'); // Hide the form
+            ritualLoading.classList.remove('hidden'); // Show loading spinner
+            ritualLoading.classList.add('flex'); // Ensure flex display for centering
+
+            const purpose = document.getElementById('ritual-purpose').value;
+            const elements = Array.from(document.querySelectorAll('#ritual-elements input[type="checkbox"]:checked'))
+                                .map(cb => cb.value);
+            const time = document.getElementById('ritual-time').value;
+            const notes = document.getElementById('ritual-notes').value;
+
+            // Construct the prompt for the Gemini API
+            let prompt = `Genera un borrador inicial de un ritual personalizado.`;
+            if (purpose) {
+                prompt += ` La intención principal es: ${purpose}.`;
+            }
+            if (elements.length > 0) {
+                prompt += ` Los elementos disponibles son: ${elements.join(', ')}.`;
+            }
+            prompt += ` El tiempo disponible es de ${time} minutos.`;
+            if (notes) {
+                prompt += ` Notas adicionales: ${notes}.`;
+            }
+            prompt += ` Por favor, estructura el ritual con un título, una breve introducción, una lista numerada de pasos claros y concisos, y una conclusión inspiradora. Usa un tono místico y alentador. Al final, agrega una nota que indique que este es un borrador inicial y que se puede agendar una consulta para refinarlo.`;
+
+            try {
+                // Call Gemini API
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const ritualText = result.candidates[0].content.parts[0].text;
+                    ritualContent.innerHTML = formatRitualText(ritualText); // Format text for display
+                    ritualLoading.classList.add('hidden'); // Hide loading
+                    ritualResult.classList.remove('hidden'); // Show result
+                } else {
+                    ritualContent.innerHTML = '<p class="text-red-400">Error al generar el ritual. Intenta de nuevo.</p>';
+                    ritualLoading.classList.add('hidden');
+                    ritualResult.classList.remove('hidden');
+                }
+
+            } catch (error) {
+                console.error('Error generating ritual:', error);
+                ritualContent.innerHTML = '<p class="text-red-400">Hubo un error al conectar con el servicio. Por favor, intenta más tarde.</p>';
+                ritualLoading.classList.add('hidden');
+                ritualResult.classList.remove('hidden');
+            }
+        }
+
+        // Helper function to format the ritual text (e.g., convert markdown to HTML)
+        function formatRitualText(text) {
+            // Basic markdown to HTML conversion for headings, lists, and paragraphs
+            let formattedText = text.replace(/^### (.*$)/gim, '<h3>$1</h3>'); // H3
+            formattedText = formattedText.replace(/^## (.*$)/gim, '<h2>$1</h2>'); // H2
+            formattedText = formattedText.replace(/^# (.*$)/gim, '<h1>$1</h1>'); // H1
+            formattedText = formattedText.replace(/^\* (.*$)/gim, '<li>$1</li>'); // Unordered list items
+            formattedText = formattedText.replace(/^- (.*$)/gim, '<li>$1</li>'); // Unordered list items (alternative)
+            formattedText = formattedText.replace(/\n\n/g, '</p><p>'); // Paragraphs
+            
+            // Handle numbered lists specifically to ensure <ol> and <li> tags are correctly applied
+            formattedText = formattedText.split('\n').map(line => {
+                const trimmedLine = line.trim();
+                if (trimmedLine.match(/^\d+\.\s/)) {
+                    return `<li>${trimmedLine.substring(trimmedLine.indexOf('.') + 1).trim()}</li>`;
+                }
+                return line;
+            }).join('\n');
+
+            // Wrap consecutive <li> in <ol> tags
+            formattedText = formattedText.replace(/(<li>.*?<\/li>(\n<li>.*?<\/li>)*)/gs, '<ol>$1</ol>');
+            formattedText = formattedText.replace(/<\/ol>\n<ol>/g, ''); // Remove redundant <ol> tags if they appear consecutively
+
+            formattedText = formattedText.replace(/<li>/g, '<li class="mb-2">'); // Add margin to list items
+            formattedText = formattedText.replace(/<ul>\n/g, '<ul class="list-disc list-inside mb-4">'); // Add list styles
+            formattedText = formattedText.replace(/<ol>\n/g, '<ol class="list-decimal list-inside mb-4">'); // Add list styles
+            
+            // Wrap text in paragraphs if not already in a block element
+            formattedText = formattedText.split('\n').map(line => {
+                if (line.trim() === '') return '';
+                if (line.startsWith('<h') || line.startsWith('<ul') || line.startsWith('<ol') || line.startsWith('<p') || line.startsWith('<li')) {
+                    return line;
+                }
+                return `<p>${line}</p>`;
+            }).join('');
+
+            // Clean up empty paragraph tags that might appear from multiple newlines
+            formattedText = formattedText.replace(/<p><\/p>/g, '');
+            formattedText = formattedText.replace(/<p>\s*<\/p>/g, '');
+
+            return formattedText;
+        }
+
+        // Function to copy the generated ritual to clipboard
+        function copyRitual() {
+            const ritualContentElement = document.getElementById('ritual-content');
+            const textToCopy = ritualContentElement.innerText; // Get plain text content
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                // Optional: Show a temporary success message
+                const copyButton = document.querySelector('#ritual-result button:first-of-type');
+                const originalText = copyButton.innerHTML;
+                copyButton.innerHTML = '<i class="fas fa-check mr-2"></i> Copiado!';
+                setTimeout(() => {
+                    copyButton.innerHTML = originalText;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Ambient music toggle
+        const musicToggle = document.getElementById('music-toggle');
+        const ambientMusic = document.getElementById('ambient-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                ambientMusic.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            } else {
+                ambientMusic.play();
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // FAQ accordion functionality
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                button.classList.remove('active');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                // Close all other open FAQs
+                document.querySelectorAll('.faq-question.active').forEach(activeButton => {
+                    if (activeButton !== button) {
+                        activeButton.nextElementSibling.style.maxHeight = null;
+                        activeButton.classList.remove('active');
+                        activeButton.querySelector('.icon').classList.remove('fa-chevron-up');
+                        activeButton.querySelector('.icon').classList.add('fa-chevron-down');
+                    }
+                });
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                button.classList.add('active');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+
+        // Show/hide scroll to top button based on scroll position
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        };
+
+        // Scroll to top when button is clicked
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <!-- Calendly widget embed script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
